@@ -159,8 +159,8 @@ if __name__ == '__main__':
 		numbers.append(int(line))
 
 	num_compares = 0
-	new_array = partition_begin(numbers.copy())
-	new_array = partition_final(numbers.copy())
+	#new_array = partition_begin(numbers.copy())
+	#new_array = partition_final(numbers.copy())
 	new_array = partition_middle(numbers.copy())
 	print("Print a new array !!")
 	print("Number of compares is " + str(num_compares))
