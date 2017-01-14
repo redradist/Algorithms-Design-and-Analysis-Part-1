@@ -49,31 +49,31 @@ def findMinCut(graph, edges):
 		#num = random.randrange(0, len(edges), 1)
 		selected_edge = copy.copy(random.choice(edges))
 		if random.randrange(0, 2) == 0:
-			save = selected_edge.a
-			delete = selected_edge.b
+			saved = selected_edge.a
+			deleted = selected_edge.b
 		else:
-			save = selected_edge.b
-			delete = selected_edge.a
+			saved = selected_edge.b
+			deleted = selected_edge.a
 		
 		adds = []
 		removes = []
-		for edge in graph.nodes[delete]:
-			if edge not in graph.nodes[save]:
+		for edge in graph.nodes[deleted]:
+			if edge not in graph.nodes[saved]:
 				adds.append(edge)
 			else:
 				removes.append(edge)
-		del graph.nodes[delete]
+		del graph.nodes[deleted]
 
 		for edge in adds:
-			graph.nodes[save].append(edge)
+			graph.nodes[saved].append(edge)
 		for edge in removes:
-			graph.nodes[save].remove(edge)
+			graph.nodes[saved].remove(edge)
 		
 		for edge in edges:
-			if edge.a == delete:
-				edge.a = save
-			elif edge.b == delete:
-				edge.b = save
+			if edge.a == deleted:
+				edge.a = saved
+			elif edge.b == deleted:
+				edge.b = saved
 			if edge.a == edge.b:
 				removes.append(edge)
 		
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 					if edge not in edges:
 						graph.addEdge(array[0], edge)
 						edges.append(edge)
-	i = 100
+	i = 200
 	min_cut = -1
 	while i > 0:
 		temp_graph = copy.deepcopy(graph)
